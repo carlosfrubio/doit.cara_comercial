@@ -1,0 +1,142 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - Hola
+    - buenas
+    - buenos dias
+    - buenas tardes
+    - buenas noches
+    - bloqueo_integral_temporal
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - adios
+    - hasta luego
+    - chao
+    - hasta mañana
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - si
+    - claro
+    - por supuesto
+    - Ok
+    - Si
+    - flp
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+    - Más Tarde
+    - normal
+- intent: mood_great
+  examples: |
+    - perfect
+    - great
+    - amazing
+    - feeling like a king
+    - wonderful
+    - I am feeling very good
+    - I am great
+    - I am amazing
+    - I am going to save the world
+    - super stoked
+    - extremely good
+    - so so perfect
+    - so good
+    - so perfect
+    - Gracias
+- intent: mood_unhappy
+  examples: |
+    - my day was horrible
+    - I am sad
+    - I don't feel very well
+    - I am disappointed
+    - super sad
+    - I'm so sad
+    - sad
+    - very sad
+    - unhappy
+    - not good
+    - not very good
+    - extremly sad
+    - so saad
+    - so sad
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - eres un bot?
+- intent: select_main_option
+  examples: |
+    - demo
+    - adviser
+- intent: answer_name_field
+  examples: |
+    - carlos
+    - andres
+    - federico
+    - laura
+    - natalia
+    - sandra
+    - carlos rubio
+    - natalia perez
+    - sandra jimenez
+    - daniel
+    - daniel carvajal
+    - Carlos Rubio
+- intent: answer_company_name_fiel
+  examples: |
+    - IA-Aplicada
+    - numa labs
+    - coca-cola
+    - postobon
+    - Ia-Aplicada
+- intent: answer_email_field
+  examples: |
+    - carlos.rubio@ia-aplicada.com
+    - carlos.rubio@numa.com.co
+    - natalia@bizagi.com
+    - carlos@ia-aplicada.com
+- intent: answer_people_count_field
+  examples: |
+    - 10
+    - 20
+    - 100
+    - 200

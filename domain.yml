@@ -1,0 +1,83 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 20
+  carry_over_slots_to_new_session: false
+intents:
+- answer_name_field
+- affirm
+- answer_people_count_field
+- select_main_option
+- greet
+- answer_email_field
+- answer_company_name_fiel
+- deny
+- mood_great
+- goodbye
+- mood_unhappy
+- bot_challenge
+slots:
+  accepted_data_policy:
+    type: bool
+    influence_conversation: true
+  main_option:
+    type: categorical
+    influence_conversation: true
+    values:
+    - demo
+    - adviser
+  name:
+    type: text
+    influence_conversation: false
+  company_name:
+    type: text
+    influence_conversation: false
+  email:
+    type: text
+    influence_conversation: false
+  people_count:
+    type: text
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: Hola, Bienvenid@ a Doit.care, es un gusto atenderte hoy
+  utter_cheer_up:
+  - image: https://i.imgur.com/nGF1K8f.jpg
+    text: 'Here is something to cheer you up:'
+  utter_did_that_help:
+  - text: Esto fue de ayuda?
+  utter_happy:
+  - text: Genial !!
+  utter_goodbye:
+  - text: Ten un buen día !
+  utter_iamabot:
+  - text: Soy un bot creado por IA-Aplicada.
+  utter_ask_name:
+  - text: Para empezar, cuentame cual es tu nombre?
+  utter_ask_company_name:
+  - text: Cual es el nombre de tu empresa?
+  utter_ask_email:
+  - text: Cual es tu correo electronico?
+  utter_ask_people_count:
+  - text: Cual es la cantidad de personas que vas a gestionar?
+actions:
+- utter_greet
+- validate_data_policy_form
+forms:
+  data_policy_form:
+    required_slots:
+      accepted_data_policy:
+      - type: from_text
+  main_menu_form:
+    required_slots:
+      main_option:
+      - type: from_text
+  user_form:
+    required_slots:
+      name:
+      - type: from_text
+      company_name:
+      - type: from_text
+      email:
+      - type: from_text
+      people_count:
+      - type: from_text

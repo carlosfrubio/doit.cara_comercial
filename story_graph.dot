@@ -1,0 +1,37 @@
+digraph  {
+0 [class="start active", fillcolor=green, fontsize=12, label=START, style=filled];
+"-1" [class=end, fillcolor=red, fontsize=12, label=END, style=filled];
+1 [class=active, fontsize=12, label=action_session_start];
+2 [class=active, fontsize=12, label=utter_greet];
+3 [class=active, fontsize=12, label=data_policy_form];
+5 [class=active, fontsize=12, label=main_menu_form];
+7 [class=active, fontsize=12, label=user_form];
+12 [class="intent dashed active", label="  ?  ", shape=rect];
+13 [class="intent active", fillcolor=lightblue, label=Hola, shape=rect, style=filled];
+14 [class="intent active", fillcolor=lightblue, label=si, shape=rect, style=filled];
+15 [class="intent active", fillcolor=lightblue, label=demo, shape=rect, style=filled];
+16 [class="intent active", fillcolor=lightblue, label="Carlos Rubio", shape=rect, style=filled];
+17 [class="intent active", fillcolor=lightblue, label="Ia-Aplicada", shape=rect, style=filled];
+18 [class="intent active", fillcolor=lightblue, label="carlos@ia-aplicada.com", shape=rect, style=filled];
+19 [class="intent active", fillcolor=lightblue, label=20, shape=rect, style=filled];
+0 -> "-1"  [class="", key=NONE, label=""];
+0 -> 1  [class=active, key=NONE, label=""];
+1 -> 13  [class=active, key=0];
+2 -> 3  [class=active, key=NONE, label=""];
+3 -> 5  [class=active, key=NONE, label=""];
+3 -> 14  [class=active, key=0];
+5 -> 7  [class=active, key=NONE, label=""];
+5 -> 15  [class=active, key=0];
+7 -> 12  [class=active, key=NONE, label=""];
+7 -> 16  [class=active, key=0];
+7 -> 17  [class=active, key=0];
+7 -> 18  [class=active, key=0];
+7 -> 19  [class=active, key=0];
+13 -> 2  [class=active, key=0];
+14 -> 3  [class=active, key=0];
+15 -> 5  [class=active, key=0];
+16 -> 7  [class=active, key=0];
+17 -> 7  [class=active, key=0];
+18 -> 7  [class=active, key=0];
+19 -> 7  [class=active, key=0];
+}

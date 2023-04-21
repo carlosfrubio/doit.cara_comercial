@@ -1,0 +1,56 @@
+version: "2.0"
+
+stories:
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: data_policy_form
+  - active_loop: data_policy_form
+  - slot_was_set:
+    - requested_slot: accepted_data_policy
+
+- story: interactive_story_2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: data_policy_form
+  - active_loop: data_policy_form
+  - slot_was_set:
+    - requested_slot: accepted_data_policy
+  - slot_was_set:
+    - accepted_data_policy: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: main_menu_form
+  - active_loop: main_menu_form
+  - slot_was_set:
+    - requested_slot: main_option
+  - slot_was_set:
+    - main_option: demo
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: user_form
+  - active_loop: user_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Carlos Rubio
+  - slot_was_set:
+    - requested_slot: company_name
+  - slot_was_set:
+    - company_name: Ia-Aplicada
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: carlos@ia-aplicada.com
+  - slot_was_set:
+    - requested_slot: people_count
+  - slot_was_set:
+    - people_count: '20'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null

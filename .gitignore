@@ -1,0 +1,9 @@
+venv
+# exclude everything from models folder
+models/*
+# except for .gitkeep, so that the folder itself is included
+!models/.gitkeep
+# exclude everything from py chache
+actions/__pycache__/*
+
+.DS_Store

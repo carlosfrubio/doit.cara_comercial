@@ -1,0 +1,13 @@
+version: '3.0'
+services:
+  doit_care_rasa:
+    build:
+      context: .
+    ports:
+      - 5005:5005
+  doit_care_action_server:
+    build:
+      context: .
+      dockerfile: Dockerfile-Actions
+    ports:
+      - 5055:5055
