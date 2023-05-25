@@ -21,6 +21,7 @@ nlu:
     - buenas tardes
     - buenas noches
     - bloqueo_integral_temporal
+    - hola
 - intent: goodbye
   examples: |
     - good afternoon
@@ -80,6 +81,7 @@ nlu:
     - so good
     - so perfect
     - Gracias
+    - Prias
 - intent: mood_unhappy
   examples: |
     - my day was horrible
@@ -121,6 +123,9 @@ nlu:
     - daniel
     - daniel carvajal
     - Carlos Rubio
+    - Federico Rubio
+    - Federico
+    - Prias
 - intent: answer_company_name_fiel
   examples: |
     - IA-Aplicada
@@ -128,15 +133,19 @@ nlu:
     - coca-cola
     - postobon
     - Ia-Aplicada
+    - Coca-cola
+    - Numalabs
 - intent: answer_email_field
   examples: |
     - carlos.rubio@ia-aplicada.com
     - carlos.rubio@numa.com.co
     - natalia@bizagi.com
     - carlos@ia-aplicada.com
+    - carlos.rubio@numa.com
 - intent: answer_people_count_field
   examples: |
     - 10
     - 20
     - 100
     - 200
+    - 40

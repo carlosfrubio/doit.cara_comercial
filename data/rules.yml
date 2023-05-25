@@ -37,3 +37,14 @@ rules:
   - action: user_form
   - active_loop: user_form
 
+- rule: Submit form user_form
+  condition:
+  - active_loop: user_form
+  steps:
+  - action: user_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: action_create_user
+  wait_for_user_input: false
+

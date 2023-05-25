@@ -4,14 +4,14 @@ session_config:
   carry_over_slots_to_new_session: false
 intents:
 - answer_name_field
-- affirm
 - answer_people_count_field
-- select_main_option
-- greet
 - answer_email_field
+- affirm
+- greet
+- select_main_option
 - answer_company_name_fiel
-- deny
 - mood_great
+- deny
 - goodbye
 - mood_unhappy
 - bot_challenge
@@ -26,6 +26,9 @@ slots:
     - demo
     - adviser
   name:
+    type: text
+    influence_conversation: false
+  last_name:
     type: text
     influence_conversation: false
   company_name:
@@ -53,6 +56,8 @@ responses:
   - text: Soy un bot creado por IA-Aplicada.
   utter_ask_name:
   - text: Para empezar, cuentame cual es tu nombre?
+  utter_ask_last_name:
+  - text: Cual es tu Apellido?
   utter_ask_company_name:
   - text: Cual es el nombre de tu empresa?
   utter_ask_email:
@@ -60,6 +65,9 @@ responses:
   utter_ask_people_count:
   - text: Cual es la cantidad de personas que vas a gestionar?
 actions:
+- action_ask_accepted_data_policy
+- action_ask_main_option
+- action_create_user
 - utter_greet
 - validate_data_policy_form
 forms:
@@ -75,9 +83,19 @@ forms:
     required_slots:
       name:
       - type: from_text
+      last_name:
+      - type: from_text
       company_name:
       - type: from_text
       email:
       - type: from_text
       people_count:
+      - type: from_text
+  onboarding_form:
+    required_slots:
+      open_file:
+      - type: from_text
+      add_users:
+      - type: from_text
+      add_tasks:
       - type: from_text

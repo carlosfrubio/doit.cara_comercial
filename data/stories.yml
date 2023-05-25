@@ -54,3 +54,147 @@ stories:
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
+  - action: action_create_user
+
+- story: interactive_story_3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: data_policy_form
+  - active_loop: data_policy_form
+  - slot_was_set:
+    - requested_slot: accepted_data_policy
+  - slot_was_set:
+    - accepted_data_policy: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: main_menu_form
+  - active_loop: main_menu_form
+  - slot_was_set:
+    - requested_slot: main_option
+  - slot_was_set:
+    - main_option: demo
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: user_form
+  - active_loop: user_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Federico Rubio
+  - slot_was_set:
+    - requested_slot: company_name
+  - slot_was_set:
+    - company_name: Coca-cola
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: carlos.rubio@numa.com
+  - slot_was_set:
+    - requested_slot: people_count
+  - slot_was_set:
+    - people_count: '40'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_user
+
+- story: interactive_story_4
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: data_policy_form
+  - active_loop: data_policy_form
+  - slot_was_set:
+    - requested_slot: accepted_data_policy
+  - slot_was_set:
+    - accepted_data_policy: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: main_menu_form
+  - active_loop: main_menu_form
+  - slot_was_set:
+    - requested_slot: main_option
+  - slot_was_set:
+    - main_option: demo
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: user_form
+  - active_loop: user_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Federico
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: Prias
+  - slot_was_set:
+    - requested_slot: company_name
+  - slot_was_set:
+    - company_name: Numalabs
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: carlos.rubio@numa.com.co
+  - slot_was_set:
+    - requested_slot: people_count
+  - slot_was_set:
+    - people_count: '40'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_user
+
+- story: interactive_story_5
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: data_policy_form
+  - active_loop: data_policy_form
+  - slot_was_set:
+    - requested_slot: accepted_data_policy
+  - slot_was_set:
+    - accepted_data_policy: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: main_menu_form
+  - active_loop: main_menu_form
+  - slot_was_set:
+    - requested_slot: main_option
+  - slot_was_set:
+    - main_option: demo
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: user_form
+  - active_loop: user_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Federico
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: Prias
+  - slot_was_set:
+    - requested_slot: company_name
+  - slot_was_set:
+    - company_name: Numalabs
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: carlos.rubio@numa.com.co
+  - slot_was_set:
+    - requested_slot: people_count
+  - slot_was_set:
+    - people_count: '40'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_user

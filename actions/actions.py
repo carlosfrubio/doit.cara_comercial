@@ -18,7 +18,7 @@ class ActionAskAcceptedDataPolicy(Action):
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
-
+        print("ENTRA A LA FUNCION")
         dispatcher.utter_message(json_message={"interactive": {
             "body": {
                 "text": "Es importante para nosotros que leas y aceptes el tratamiento que hacemos con tus datos \nhttps://www.doit.care/data-policy \n Debes saber que para contunuar debes aceptar 😁"
@@ -44,6 +44,7 @@ class ActionAskAcceptedDataPolicy(Action):
             }
         }})
         return []
+
 
 class ValidateDataPolicyForm(FormValidationAction):
     def name(self) -> Text:
@@ -71,17 +72,17 @@ class ValidateDataPolicyForm(FormValidationAction):
                 text="Disculpa, No logre entender tu respuesta")
             return {"accepted_data_policy": None}
 
+
 class ActionAskMainOption(Action):
     def name(self) -> Text:
         return "action_ask_main_option"
-
+    
     def run(
         self,
         dispatcher: CollectingDispatcher,
         tracker: Tracker,
         domain: Dict[Text, Any],
     ) -> List[Dict[Text, Any]]:
-
         dispatcher.utter_message(json_message={"interactive": {
             "body": {
                 "text": "Cuentanos que como podemos colaborarte hoy?"
@@ -92,14 +93,14 @@ class ActionAskMainOption(Action):
                         {
                             "type": "reply",
                             "reply": {
-                                "id": "si",
+                                "id": "demo",
                                 "title": "Quiero un Demo"
                             }
                         },
                         {
                             "type": "reply",
                             "reply": {
-                                "id": "no",
+                                "id": "adviser",
                                 "title": "Hablar con un asesor"
                             }
                         }
@@ -107,6 +108,7 @@ class ActionAskMainOption(Action):
             }
         }})
         return []
+
 
 class ValidateMainMenuForm(FormValidationAction):
     def name(self) -> Text:
@@ -130,6 +132,7 @@ class ValidateMainMenuForm(FormValidationAction):
                 text="Disculpa, No logre entender tu respuesta")
             return {"main_option": None}
 
+
 class ValidateUserForm(FormValidationAction):
     def name(self) -> Text:
         return "validate_user_form"
@@ -150,7 +153,7 @@ class ValidateUserForm(FormValidationAction):
             dispatcher.utter_message(
                 text="Disculpa, por favor indacanos tu nombre")
             return {"name": None}
-    
+
     def validate_company_name(
         self,
         slot_value: Any,
@@ -167,7 +170,7 @@ class ValidateUserForm(FormValidationAction):
             dispatcher.utter_message(
                 text="Disculpa, por favor indacanos el nombre de tu empresa")
             return {"company_name": None}
-    
+
     def validate_email(
         self,
         slot_value: Any,
@@ -184,7 +187,7 @@ class ValidateUserForm(FormValidationAction):
             dispatcher.utter_message(
                 text="Disculpa, por favor indacanos un email valido")
             return {"email": None}
-    
+
     def validate_people_count(
         self,
         slot_value: Any,
@@ -201,3 +204,60 @@ class ValidateUserForm(FormValidationAction):
             dispatcher.utter_message(
                 text="Disculpa, por favor indacanos un número")
             return {"people_count": None}
+
+
+class ActionCreateUser(Action):
+    def name(self) -> Text:
+        return "action_create_user"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+
+        name = tracker.get_slot("name")
+        last_name = tracker.get_slot("last_name")
+        company_name = tracker.get_slot("company_name")
+        email = tracker.get_slot("email")
+        people_count = tracker.get_slot("people_count")
+        #user_phone = tracker.sender_id
+        user_phone = "+573005437825"
+
+        auth_token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.XkKnFaIbPwZ7CzGzVIBk_fxk4fjOTk27Xo5dGejlVbM'
+        headers = {'Authorization': f'Bearer {auth_token}'}
+        company_body_req = {
+            "name": company_name,
+        }
+        company_response = requests.post(
+            f"http://localhost:8000/organizations?email_owner={email}", json=company_body_req, headers=headers)
+        
+        print("COMPANY", company_response)
+        
+        company_response = company_response.json()
+
+        print("COMPANY", company_response)
+
+        user_body_req = {
+            "name": name,
+            "last_name": last_name,
+            "email": email,
+            "phone_number": user_phone,
+            "role_id_fk": 1,
+            "password": "doit2023",
+            "organization_uid_fk": company_response["uid"]
+        }
+
+        user_response = requests.post(
+            "http://localhost:8000/users", json=user_body_req, headers=headers)
+        
+        print("USER", user_response)
+
+        user_response = user_response.json()
+        
+        print("USER", user_response)
+
+        dispatcher.utter_message(
+                text=f"Has quedado registrado, en el siguiente link https://drive.google.com/drive/folders/{company_response['drive_folder_id']} encontraras el archivo de gestion para que empieces a probar nuestra herramienta")
+        return []
