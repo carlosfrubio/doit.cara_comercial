@@ -420,3 +420,358 @@ stories:
   - slot_was_set:
     - requested_slot: null
   - active_loop: null
+
+- story: interactive_story_9
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: data_policy_form
+  - active_loop: data_policy_form
+  - slot_was_set:
+    - requested_slot: accepted_data_policy
+  - slot_was_set:
+    - accepted_data_policy: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: main_menu_form
+  - active_loop: main_menu_form
+  - slot_was_set:
+    - requested_slot: main_option
+  - slot_was_set:
+    - main_option: demo
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: user_form
+  - active_loop: user_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Paul Mauricio
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: Realpe Guerrero
+  - slot_was_set:
+    - requested_slot: company_name
+  - slot_was_set:
+    - company_name: DevPaul
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: paul.mauricio@devpaul.co
+  - slot_was_set:
+    - requested_slot: people_count
+  - slot_was_set:
+    - people_count: '23'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_user
+  - slot_was_set:
+    - organization:
+        name: DevPaul
+        drive_folder_id: 1WCw-FiUYgNZTI3ziAVufcb4jREn4Tw83
+        uid: a30eeb71-ddb1-4a24-b82c-76b0ba56d7ab
+        created_at: '2023-05-26'
+  - slot_was_set:
+    - user:
+        message: Se ha registrado el usuario
+  - slot_was_set:
+    - user_created: true
+  - action: onboarding_form
+  - active_loop: onboarding_form
+  - slot_was_set:
+    - requested_slot: open_file
+  - slot_was_set:
+    - open_file: true
+  - slot_was_set:
+    - requested_slot: add_users
+  - slot_was_set:
+    - add_users: true
+  - slot_was_set:
+    - requested_slot: add_tasks
+  - intent: affirm
+  - action: utter_ask_add_tasks
+  - intent: affirm
+
+- story: interactive_story_10
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: data_policy_form
+  - active_loop: data_policy_form
+  - slot_was_set:
+    - requested_slot: accepted_data_policy
+  - slot_was_set:
+    - accepted_data_policy: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: main_menu_form
+  - active_loop: main_menu_form
+  - slot_was_set:
+    - requested_slot: main_option
+  - slot_was_set:
+    - main_option: si
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: user_form
+  - active_loop: user_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Jimmy Alexander
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: Realpe Guerrero
+  - slot_was_set:
+    - requested_slot: company_name
+  - slot_was_set:
+    - company_name: Cluster CreaTIC
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: jimmyarg87@gmail.com
+  - slot_was_set:
+    - requested_slot: people_count
+  - slot_was_set:
+    - people_count: '12'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_user
+  - slot_was_set:
+    - organization:
+        name: Cluster CreaTIC
+        drive_folder_id: 1LPsjjprD2C0wrMHjflmdQ_B9Z3SCmJDO
+        uid: 23f3d05c-7a11-41df-a8c3-d11cddf70cf9
+        created_at: '2023-05-26'
+  - slot_was_set:
+    - user:
+        message: Se ha registrado el usuario
+  - slot_was_set:
+    - user_created: true
+  - action: onboarding_form
+  - active_loop: onboarding_form
+  - slot_was_set:
+    - requested_slot: open_file
+  - slot_was_set:
+    - open_file: true
+  - slot_was_set:
+    - requested_slot: add_users
+  - slot_was_set:
+    - add_users: true
+  - slot_was_set:
+    - requested_slot: add_tasks
+  - slot_was_set:
+    - add_tasks: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+
+- story: interactive_story_11
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: data_policy_form
+  - active_loop: data_policy_form
+  - slot_was_set:
+    - requested_slot: accepted_data_policy
+  - slot_was_set:
+    - accepted_data_policy: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: main_menu_form
+  - active_loop: main_menu_form
+  - slot_was_set:
+    - requested_slot: main_option
+  - slot_was_set:
+    - main_option: demo
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: user_form
+  - active_loop: user_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Juan Carlos
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: Correa
+  - slot_was_set:
+    - requested_slot: company_name
+  - slot_was_set:
+    - company_name: International Business Machines
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: juancacorrea@ibm.com
+  - slot_was_set:
+    - requested_slot: people_count
+  - slot_was_set:
+    - people_count: '86'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_user
+
+- story: interactive_story_12
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: data_policy_form
+  - active_loop: data_policy_form
+  - slot_was_set:
+    - requested_slot: accepted_data_policy
+  - slot_was_set:
+    - accepted_data_policy: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: main_menu_form
+  - active_loop: main_menu_form
+  - slot_was_set:
+    - requested_slot: main_option
+  - slot_was_set:
+    - main_option: demo
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: user_form
+  - active_loop: user_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Daniel
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: Bolanos
+  - slot_was_set:
+    - requested_slot: company_name
+  - slot_was_set:
+    - company_name: Unicauca
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: danbolanos@unicauca.edu.co
+  - slot_was_set:
+    - requested_slot: people_count
+  - slot_was_set:
+    - people_count: '15'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_user
+  - slot_was_set:
+    - organization:
+        name: Unicauca
+        drive_folder_id: 1ZG_QoCOJJGQ9SEa4LmLvD8ZZTZUQ7Fhn
+        uid: 6b724680-0c20-4431-8dd2-0ca000a76d37
+        created_at: '2023-05-26'
+  - slot_was_set:
+    - user:
+        message: Se ha registrado el usuario
+  - slot_was_set:
+    - user_created: true
+  - action: onboarding_form
+  - active_loop: onboarding_form
+  - slot_was_set:
+    - requested_slot: open_file
+  - slot_was_set:
+    - open_file: true
+  - slot_was_set:
+    - requested_slot: add_users
+  - slot_was_set:
+    - add_users: true
+  - slot_was_set:
+    - requested_slot: add_tasks
+  - slot_was_set:
+    - add_tasks: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+
+- story: interactive_story_13
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: data_policy_form
+  - active_loop: data_policy_form
+  - slot_was_set:
+    - requested_slot: accepted_data_policy
+  - slot_was_set:
+    - accepted_data_policy: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: main_menu_form
+  - active_loop: main_menu_form
+  - slot_was_set:
+    - requested_slot: main_option
+  - slot_was_set:
+    - main_option: demo
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: user_form
+  - active_loop: user_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Carlo
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: Ancelotti
+  - slot_was_set:
+    - requested_slot: company_name
+  - slot_was_set:
+    - company_name: Real Madrid FC
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: carlo.ancelotti@realmadrid.com
+  - slot_was_set:
+    - requested_slot: people_count
+  - slot_was_set:
+    - people_count: '48'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_user
+  - slot_was_set:
+    - organization:
+        name: Real Madrid FC
+        drive_folder_id: 1KttjQVbol2mznVkTBHduS34BC6ONtTPr
+        uid: 5538d00f-2239-4ec2-aceb-e7f1839823b6
+        created_at: '2023-05-26'
+  - slot_was_set:
+    - user:
+        message: Se ha registrado el usuario
+  - slot_was_set:
+    - user_created: true
+  - action: onboarding_form
+  - active_loop: onboarding_form
+  - slot_was_set:
+    - requested_slot: open_file
+  - slot_was_set:
+    - open_file: true
+  - slot_was_set:
+    - requested_slot: add_users
+  - slot_was_set:
+    - add_users: true
+  - slot_was_set:
+    - requested_slot: add_tasks
+  - slot_was_set:
+    - add_tasks: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null

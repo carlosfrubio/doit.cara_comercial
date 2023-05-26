@@ -23,6 +23,8 @@ nlu:
     - bloqueo_integral_temporal
     - hola
     - Holaa
+    - Holi
+    - Holita
 - intent: goodbye
   examples: |
     - good afternoon
@@ -132,6 +134,14 @@ nlu:
     - Paul M
     - Realpe Guerrero
     - Paul
+    - Paul Mauricio
+    - Jimmy Alexander
+    - Juan Carlos
+    - Correa
+    - Daniel
+    - Bolanos
+    - Carlo
+    - Ancelotti
 - intent: answer_company_name_fiel
   examples: |
     - IA-Aplicada
@@ -144,6 +154,11 @@ nlu:
     - IA Aplicada demo
     - IA Aplicada 3
     - DevPaulCO
+    - DevPaul
+    - Cluster CreaTIC
+    - International Business Machines
+    - Unicauca
+    - Real Madrid FC
 - intent: answer_email_field
   examples: |
     - carlos.rubio@ia-aplicada.com
@@ -154,6 +169,11 @@ nlu:
     - paulmrg_461@hotmail.com
     - paulmrg46@gmail.com
     - development@devpaul.co
+    - paul.mauricio@devpaul.co
+    - jimmyarg87@gmail.com
+    - juancacorrea@ibm.com
+    - danbolanos@unicauca.edu.co
+    - carlo.ancelotti@realmadrid.com
 - intent: answer_people_count_field
   examples: |
     - 10
@@ -162,3 +182,8 @@ nlu:
     - 200
     - 40
     - 16
+    - 23
+    - 12
+    - 86
+    - 15
+    - 48
