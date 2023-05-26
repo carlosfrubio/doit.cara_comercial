@@ -22,6 +22,7 @@ nlu:
     - buenas noches
     - bloqueo_integral_temporal
     - hola
+    - Holaa
 - intent: goodbye
   examples: |
     - good afternoon
@@ -130,6 +131,7 @@ nlu:
     - Realpe
     - Paul M
     - Realpe Guerrero
+    - Paul
 - intent: answer_company_name_fiel
   examples: |
     - IA-Aplicada
@@ -141,6 +143,7 @@ nlu:
     - Numalabs
     - IA Aplicada demo
     - IA Aplicada 3
+    - DevPaulCO
 - intent: answer_email_field
   examples: |
     - carlos.rubio@ia-aplicada.com
@@ -150,6 +153,7 @@ nlu:
     - carlos.rubio@numa.com
     - paulmrg_461@hotmail.com
     - paulmrg46@gmail.com
+    - development@devpaul.co
 - intent: answer_people_count_field
   examples: |
     - 10

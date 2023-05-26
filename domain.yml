@@ -3,13 +3,13 @@ session_config:
   session_expiration_time: 20
   carry_over_slots_to_new_session: false
 intents:
-- affirm
 - greet
-- answer_company_name_fiel
-- answer_name_field
-- answer_people_count_field
 - select_main_option
+- answer_people_count_field
+- answer_company_name_fiel
 - answer_email_field
+- affirm
+- answer_name_field
 - mood_great
 - deny
 - goodbye
@@ -82,8 +82,6 @@ responses:
   - text: Cual es tu correo electronico?
   utter_ask_people_count:
   - text: Cual es la cantidad de personas que vas a gestionar?
-  utter_ask_open_file:
-  - text: Lograste abrir el archivo de gestión? (Sí/No)
   utter_ask_add_users:
   - text: Lograste llenar el listado de usuarios? (Sí/No)
   utter_ask_add_tasks:
@@ -91,6 +89,7 @@ responses:
 actions:
 - action_ask_accepted_data_policy
 - action_ask_main_option
+- action_ask_open_file
 - action_create_user
 - utter_greet
 - validate_data_policy_form

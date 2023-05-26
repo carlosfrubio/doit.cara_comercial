@@ -267,7 +267,7 @@ stories:
   - slot_was_set:
     - requested_slot: open_file
 
-- story: interactive_story_1
+- story: interactive_story_7
   steps:
   - intent: greet
   - action: utter_greet
@@ -321,6 +321,83 @@ stories:
         drive_folder_id: 1wxu_wnYIsJXcO8XnTD5Kz_nhUB5gWcSi
         created_at: '2023-05-25'
         uid: 16d04fd9-410d-4bc4-8362-15a63b01d75d
+  - slot_was_set:
+    - user:
+        message: Se ha registrado el usuario
+  - slot_was_set:
+    - user_created: true
+  - action: onboarding_form
+  - active_loop: onboarding_form
+  - slot_was_set:
+    - requested_slot: open_file
+  - slot_was_set:
+    - open_file: true
+  - slot_was_set:
+    - requested_slot: add_users
+  - slot_was_set:
+    - add_users: true
+  - slot_was_set:
+    - requested_slot: add_tasks
+  - slot_was_set:
+    - add_tasks: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+
+- story: interactive_story_8
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: data_policy_form
+  - active_loop: data_policy_form
+  - slot_was_set:
+    - requested_slot: accepted_data_policy
+  - slot_was_set:
+    - accepted_data_policy: true
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: main_menu_form
+  - active_loop: main_menu_form
+  - slot_was_set:
+    - requested_slot: main_option
+  - slot_was_set:
+    - main_option: demo
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: user_form
+  - active_loop: user_form
+  - slot_was_set:
+    - requested_slot: name
+  - slot_was_set:
+    - name: Paul
+  - slot_was_set:
+    - requested_slot: last_name
+  - slot_was_set:
+    - last_name: Realpe
+  - slot_was_set:
+    - requested_slot: company_name
+  - slot_was_set:
+    - company_name: DevPaulCO
+  - slot_was_set:
+    - requested_slot: email
+  - slot_was_set:
+    - email: development@devpaul.co
+  - slot_was_set:
+    - requested_slot: people_count
+  - slot_was_set:
+    - people_count: '16'
+  - slot_was_set:
+    - requested_slot: null
+  - active_loop: null
+  - action: action_create_user
+  - slot_was_set:
+    - organization:
+        name: DevPaulCO
+        drive_folder_id: 19VMBtI0DbAKM611GmO8itbiNYL8evHvi
+        uid: 0ce4ffd3-4e4d-411a-b7c6-a32efa45e60d
+        created_at: '2023-05-26'
   - slot_was_set:
     - user:
         message: Se ha registrado el usuario

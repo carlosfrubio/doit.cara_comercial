@@ -223,7 +223,7 @@ class ActionCreateUser(Action):
         email = tracker.get_slot("email")
         people_count = tracker.get_slot("people_count")
         #user_phone = tracker.sender_id
-        user_phone = "+573013495692"
+        user_phone = "+573013495697"
         # user_phone = "+573005437825"
 
         auth_token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.XkKnFaIbPwZ7CzGzVIBk_fxk4fjOTk27Xo5dGejlVbM'
@@ -267,6 +267,42 @@ class ActionCreateUser(Action):
             SlotSet("user_created", True), 
         ]
 
+class ActionAskOpenFile(Action):
+    def name(self) -> Text:
+        return "action_ask_open_file"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        print("ENTRA A LA FUNCION Could open file")
+        dispatcher.utter_message(json_message={"interactive": {
+            "body": {
+                "text": "Lograste acceder al archivo de gestión del proyecto?"
+            },
+            "type": "button",
+            "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "si",
+                                "title": "Sí 👍🏻"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "no",
+                                "title": "No 👍🏻"
+                            }
+                        }
+                    ]
+            }
+        }})
+        return []
 
 class ValidateOnboardingForm(FormValidationAction):
     def name(self) -> Text:
@@ -337,3 +373,4 @@ class ValidateOnboardingForm(FormValidationAction):
             dispatcher.utter_message(
                 text="Disculpa, No logre entender tu respuesta")
             return {"add_tasks": None}
+
