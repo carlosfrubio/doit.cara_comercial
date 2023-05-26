@@ -3,13 +3,13 @@ session_config:
   session_expiration_time: 20
   carry_over_slots_to_new_session: false
 intents:
-- answer_name_field
-- answer_people_count_field
-- answer_email_field
 - affirm
 - greet
-- select_main_option
 - answer_company_name_fiel
+- answer_name_field
+- answer_people_count_field
+- select_main_option
+- answer_email_field
 - mood_great
 - deny
 - goodbye
@@ -40,6 +40,24 @@ slots:
   people_count:
     type: text
     influence_conversation: false
+  organization:
+    type: list
+    influence_conversation: false
+  user:
+    type: list
+    influence_conversation: false
+  user_created:
+    type: bool
+    influence_conversation: true
+  open_file:
+    type: bool
+    influence_conversation: true
+  add_users:
+    type: bool
+    influence_conversation: true
+  add_tasks:
+    type: bool
+    influence_conversation: true
 responses:
   utter_greet:
   - text: Hola, Bienvenid@ a Doit.care, es un gusto atenderte hoy
@@ -64,12 +82,19 @@ responses:
   - text: Cual es tu correo electronico?
   utter_ask_people_count:
   - text: Cual es la cantidad de personas que vas a gestionar?
+  utter_ask_open_file:
+  - text: Lograste abrir el archivo de gestión? (Sí/No)
+  utter_ask_add_users:
+  - text: Lograste llenar el listado de usuarios? (Sí/No)
+  utter_ask_add_tasks:
+  - text: Lograste llenar el listado de tareas? (Sí/No)
 actions:
 - action_ask_accepted_data_policy
 - action_ask_main_option
 - action_create_user
 - utter_greet
 - validate_data_policy_form
+- validate_onboarding_form
 forms:
   data_policy_form:
     required_slots:

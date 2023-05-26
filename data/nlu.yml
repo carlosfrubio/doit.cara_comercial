@@ -53,6 +53,7 @@ nlu:
     - Ok
     - Si
     - flp
+    - Paul
 - intent: deny
   examples: |
     - no
@@ -126,6 +127,9 @@ nlu:
     - Federico Rubio
     - Federico
     - Prias
+    - Realpe
+    - Paul M
+    - Realpe Guerrero
 - intent: answer_company_name_fiel
   examples: |
     - IA-Aplicada
@@ -135,6 +139,8 @@ nlu:
     - Ia-Aplicada
     - Coca-cola
     - Numalabs
+    - IA Aplicada demo
+    - IA Aplicada 3
 - intent: answer_email_field
   examples: |
     - carlos.rubio@ia-aplicada.com
@@ -142,6 +148,8 @@ nlu:
     - natalia@bizagi.com
     - carlos@ia-aplicada.com
     - carlos.rubio@numa.com
+    - paulmrg_461@hotmail.com
+    - paulmrg46@gmail.com
 - intent: answer_people_count_field
   examples: |
     - 10
@@ -149,3 +157,4 @@ nlu:
     - 100
     - 200
     - 40
+    - 16

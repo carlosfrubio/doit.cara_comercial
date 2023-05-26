@@ -223,7 +223,8 @@ class ActionCreateUser(Action):
         email = tracker.get_slot("email")
         people_count = tracker.get_slot("people_count")
         #user_phone = tracker.sender_id
-        user_phone = "+573005437825"
+        user_phone = "+573013495692"
+        # user_phone = "+573005437825"
 
         auth_token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.XkKnFaIbPwZ7CzGzVIBk_fxk4fjOTk27Xo5dGejlVbM'
         headers = {'Authorization': f'Bearer {auth_token}'}
@@ -260,4 +261,79 @@ class ActionCreateUser(Action):
 
         dispatcher.utter_message(
                 text=f"Has quedado registrado, en el siguiente link https://drive.google.com/drive/folders/{company_response['drive_folder_id']} encontraras el archivo de gestion para que empieces a probar nuestra herramienta")
-        return []
+        return [
+            SlotSet("organization", company_response),
+            SlotSet("user", user_response),
+            SlotSet("user_created", True), 
+        ]
+
+
+class ValidateOnboardingForm(FormValidationAction):
+    def name(self) -> Text:
+        return "validate_onboarding_form"
+
+    def validate_open_file(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `open_file` value."""
+        print(f"Option given = {slot_value}")
+        intent = tracker.latest_message['intent'].get('name')
+
+        if intent == "affirm":
+            return {"open_file": True}
+        elif intent == "deny":
+            dispatcher.utter_message(
+                text="Para continuar, debes validar si lograste abrir el archivo")
+            return {"open_file": None}
+        else:
+            dispatcher.utter_message(
+                text="Disculpa, No logre entender tu respuesta")
+            return {"open_file": None}
+    
+    def validate_add_users(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `add_users` value."""
+        print(f"Option given = {slot_value}")
+        intent = tracker.latest_message['intent'].get('name')
+
+        if intent == "affirm":
+            return {"add_users": True}
+        elif intent == "deny":
+            dispatcher.utter_message(
+                text="Para continuar, debes validar si lograste agregar usuarios")
+            return {"add_users": None}
+        else:
+            dispatcher.utter_message(
+                text="Disculpa, No logre entender tu respuesta")
+            return {"add_users": None}
+    
+    def validate_add_tasks(
+        self,
+        slot_value: Any,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: DomainDict,
+    ) -> Dict[Text, Any]:
+        """Validate `add_tasks` value."""
+        print(f"Option given = {slot_value}")
+        intent = tracker.latest_message['intent'].get('name')
+
+        if intent == "affirm":
+            return {"add_tasks": True}
+        elif intent == "deny":
+            dispatcher.utter_message(
+                text="Para continuar, debes validar si lograste agregar tareas")
+            return {"add_tasks": None}
+        else:
+            dispatcher.utter_message(
+                text="Disculpa, No logre entender tu respuesta")
+            return {"add_tasks": None}

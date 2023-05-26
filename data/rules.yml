@@ -48,3 +48,10 @@ rules:
   - action: action_create_user
   wait_for_user_input: false
 
+- rule: Active onboarding form
+  condition:
+  - slot_was_set:
+    - user_created: True
+  steps:
+  - action: onboarding_form
+  - active_loop: onboarding_form
