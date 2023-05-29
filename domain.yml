@@ -3,13 +3,13 @@ session_config:
   session_expiration_time: 20
   carry_over_slots_to_new_session: false
 intents:
-- answer_name_field
-- greet
-- answer_company_name_fiel
 - select_main_option
 - answer_email_field
-- answer_people_count_field
 - affirm
+- greet
+- answer_company_name_fiel
+- answer_people_count_field
+- answer_name_field
 - mood_great
 - deny
 - goodbye

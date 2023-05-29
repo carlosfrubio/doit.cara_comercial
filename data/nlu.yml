@@ -159,6 +159,7 @@ nlu:
     - International Business Machines
     - Unicauca
     - Real Madrid FC
+    - IA Aplicada SAS
 - intent: answer_email_field
   examples: |
     - carlos.rubio@ia-aplicada.com
@@ -174,6 +175,8 @@ nlu:
     - juancacorrea@ibm.com
     - danbolanos@unicauca.edu.co
     - carlo.ancelotti@realmadrid.com
+    - co.devpaul@gmail.com
+    - paul.realpe@ia-aplicada.com
 - intent: answer_people_count_field
   examples: |
     - 10
@@ -187,3 +190,5 @@ nlu:
     - 86
     - 15
     - 48
+    - 3
+    - 2
