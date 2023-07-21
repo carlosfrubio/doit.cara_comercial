@@ -223,7 +223,7 @@ class ActionCreateUser(Action):
         email = tracker.get_slot("email")
         people_count = tracker.get_slot("people_count")
         #user_phone = tracker.sender_id
-        user_phone = "+573013495692"
+        user_phone = "+573013495690"
         # user_phone = "+573005437825"
 
         auth_token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.XkKnFaIbPwZ7CzGzVIBk_fxk4fjOTk27Xo5dGejlVbM'
@@ -231,6 +231,7 @@ class ActionCreateUser(Action):
         company_body_req = {
             "name": company_name,
         }
+        # TODO: Intent convert async function
         company_response = requests.post(
             f"http://localhost:8000/organizations?email_owner={email}", json=company_body_req, headers=headers)
         
@@ -267,6 +268,116 @@ class ActionCreateUser(Action):
             SlotSet("user_created", True), 
         ]
 
+class ActionAskOpenFile(Action):
+    def name(self) -> Text:
+        return "action_ask_open_file"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        print("ENTRA A LA FUNCION Could open file")
+        dispatcher.utter_message(json_message={"interactive": {
+            "body": {
+                "text": "Lograste acceder al archivo de gestión del proyecto?"
+            },
+            "type": "button",
+            "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "si",
+                                "title": "Sí 👍🏻"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "no",
+                                "title": "No 👍🏻"
+                            }
+                        }
+                    ]
+            }
+        }})
+        return []
+
+class ActionAskAddUsers(Action):
+    def name(self) -> Text:
+        return "action_ask_add_users"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        print("ENTRA A LA FUNCION Could add users")
+        dispatcher.utter_message(json_message={"interactive": {
+            "body": {
+                "text": "Lograste llenar el listado de usuarios?"
+            },
+            "type": "button",
+            "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "si",
+                                "title": "Sí 👍🏻"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "no",
+                                "title": "No 👍🏻"
+                            }
+                        }
+                    ]
+            }
+        }})
+        return []
+    
+class ActionAskAddTasks(Action):
+    def name(self) -> Text:
+        return "action_ask_add_tasks"
+
+    def run(
+        self,
+        dispatcher: CollectingDispatcher,
+        tracker: Tracker,
+        domain: Dict[Text, Any],
+    ) -> List[Dict[Text, Any]]:
+        print("ENTRA A LA FUNCION Could add tasks")
+        dispatcher.utter_message(json_message={"interactive": {
+            "body": {
+                "text": "Lograste llenar el listado de tareas?"
+            },
+            "type": "button",
+            "action": {
+                    "buttons": [
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "si",
+                                "title": "Sí 👍🏻"
+                            }
+                        },
+                        {
+                            "type": "reply",
+                            "reply": {
+                                "id": "no",
+                                "title": "No 👍🏻"
+                            }
+                        }
+                    ]
+            }
+        }})
+        return []
 
 class ValidateOnboardingForm(FormValidationAction):
     def name(self) -> Text:
@@ -306,6 +417,11 @@ class ValidateOnboardingForm(FormValidationAction):
         intent = tracker.latest_message['intent'].get('name')
 
         if intent == "affirm":
+            organization = tracker.get_slot("organization")[0]
+            organization_id = organization['uid']
+            auth_token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.XkKnFaIbPwZ7CzGzVIBk_fxk4fjOTk27Xo5dGejlVbM'
+            headers = {'Authorization': f'Bearer {auth_token}'}
+            requests.post(f"http://localhost:8000/import-users?organization_uid={organization_id}", headers=headers)
             return {"add_users": True}
         elif intent == "deny":
             dispatcher.utter_message(
@@ -328,6 +444,11 @@ class ValidateOnboardingForm(FormValidationAction):
         intent = tracker.latest_message['intent'].get('name')
 
         if intent == "affirm":
+            organization = tracker.get_slot("organization")[0]
+            organization_id = organization['uid']
+            auth_token='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZG1pbiI6dHJ1ZX0.XkKnFaIbPwZ7CzGzVIBk_fxk4fjOTk27Xo5dGejlVbM'
+            headers = {'Authorization': f'Bearer {auth_token}'}
+            requests.post(f"http://localhost:8000/import-task?organization_uid={organization_id}", headers=headers) 
             return {"add_tasks": True}
         elif intent == "deny":
             dispatcher.utter_message(
@@ -337,3 +458,4 @@ class ValidateOnboardingForm(FormValidationAction):
             dispatcher.utter_message(
                 text="Disculpa, No logre entender tu respuesta")
             return {"add_tasks": None}
+
